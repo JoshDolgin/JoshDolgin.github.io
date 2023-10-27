@@ -242,7 +242,7 @@ a:hover {
 .timeline-bar {
     position: absolute;
     width: 5px;
-    background: linear-gradient(#79d4ab, #55abdd);
+    background: linear-gradient(#d18fd7, #9b32cf);
     top: 143px;
     bottom: 69px;
     left: 50%;
