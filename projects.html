@@ -26,7 +26,7 @@
 			</nav>
 			<hr>
 			<div class="bottom_nav_condensed">
-				<h1 class="condensed_name">Josh <b>Dolgin</b></h1>
+				<h1 class="condensed_name">Josh Dolgin</h1>
 				<p class="location">ON | <b>CA</b></p>
 			</div>
 		</header>
@@ -106,9 +106,9 @@
 				<!-- CARD -2-->
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/ABV_Render.PNG" width=100% height=auto>
+						<img src="./photos/AVT_Built.JPG" width=100% height=auto>
 						<figcaption>
-							<h3>Automated Ball Valve</h3>
+							<h3>Automated Vacuum Testbench</h3>
 						</figcaption>
 						<!--Modal-->
 						<div class="portfolio-modal">
@@ -117,28 +117,56 @@
 							</button>
 							<div class="portfolio-header">
 								<div class="portfolio-title-box">
-									<h2 class="portfolio-title">Automated Ball Valve</h2>
+									<h2 class="portfolio-title">Automated Vacuum Testbench</h2>
 									<p class="portfolio-subtitle">Characterizing robot vacuum performance.</p>
 								</div>
 							</div>
 							<div class="portfolio-content">
+								<div class="image-box">
+									<img class="portfolio-full-width" src="./photos/ABV_Render.PNG">
+								</div>
 								<div class="text-box">
 									<b>What</b>
 								</div>
 								<div class="text-box">
-									<p>what?</p>
+									<p>During my work at Kindred AI, I was responsible for making an automated pressure vs flow testbench that measured vacuum pressure and vacuum flow from full vacuum seal to open flow, as a method of evaluating and comparing vacuum generation technologies. As part of this project, there was a need for a ball valve that could have its position be controlled via software.</p>
+								</div>
+								<div class="image-box">
+									<img class="center-picture" src="./photos/ABV_Exploded.png" style="width: 100%; height: auto;">
 								</div>
 								<div class="text-box">
 									<b>How</b>
 								</div>
 								<div class="text-box">
-									<p>how?</p>
+									<p>I created a design that uses a servo motor directly driving a 1⁄2” NPT ball valve. Using a Torque wrench, it was determined that the maximum torque required to turn the ball valve was 0.87 NM. A 35 Kg-cm servo motor was used, roughly 4x the required torque. This compensates for angular misalignment and reduces current drawn by the motor.</p>
+								</div>
+								<div class="text-box">
+									<img class="right-picture" src="./photos/ABV_Assembled.png" style="height: auto;">
+									<p>In the process of designing, other motors and configurations were considered, including gear or belt driven servo motors, or DC hobby motors. However, since it was a requirement that the design require no maintenance, the use of moving or finite life parts was decided against.</p>
+								</div>
+								<div class="text-box">
+									<img class="left-picture" src="./photos/ABV_FEA.png" style="height: auto;">
+									<b>Using the applied torque from the servo motor, an FEA was run to evaluate the angular deformation of the servo arm connector, to calculate the angular dead zone of the 3D printed part. The servo motor is controlled via microstepping and has a resolution of 0.66°.</b>
+								</div>
+								<div class="text-box">
+									<img class="left-picture" src="./photos/ABV_FEA.png" style="height: auto;">
+									<b>Using the applied torque from the servo motor, an FEA was run to evaluate the angular deformation of the servo arm connector, to calculate the angular dead zone of the 3D printed part. The servo motor is controlled via microstepping and has a resolution of 0.66°.</b>
 								</div>
 								<div class="text-box">
 									<b>Results</b>
 								</div>
 								<div class="text-box">
-									<p>results?</p>
+									<p>I reached out to a company that make their own automated ball valves and requested a sample unit that had variable position control and could open/close quick enough to be used for testing. This ball valve ended up being more precise than the servo motor solution I had created, since it can be controlled by the Arduino with a 0-10V DAC (which you can buy with sub milivolt precision).</p>
+								</div>
+								<div class="text-box">
+									<img class="right-picture" src="./photos/AVT_Built2.JPG style=" style = "height: auto;">
+									<b>The final automated vaccum testbench is enclosed in a sealed plastic case from McMaster Carr, with a USB female port on the side to communicate with the user. The process of running a test takes 2 minutes, as opposed to 30 minutes manually. The readings are exremely precise, with sub 1% deviation between tests. </b>
+								</div>
+								<div class="image-box">
+									<img class="center-picture" src="./photos/RAW_Data.PNG" style="width: 60%; height: auto;">
+								</div>
+								<div class="text-box">
+									<p>Example raw readings from the testbench.</p>
 								</div>
 							</div>
 						</div>
