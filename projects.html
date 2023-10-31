@@ -44,8 +44,66 @@
 				</div> 
 			</header>
 			<div class="cards_container">
+				<figure style="cursor: pointer;" class="card mech all">
+					<a class="portfolio-link">
+						<img src="./photos/ShoeDryer_Build.png" width=100% height=auto>
+						<figcaption>
+							<h3>Shoe Dryer</h3>
+						</figcaption>
+						<div class="portfolio-modal">
+							<button type="button" class="modal-close">
+								<img class="close-svg" src="./photos/close button.svg" alt="Close">
+							</button>
+							<div class="portfolio-header">
+								<div class="portfolio-title-box">
+									<h2 class="portfolio-title">Shoe Dryer</h2>
+									<p class="portfolio-subtitle">Drying Climbing Shoes, learning to lathe, and anodizing.</p>
+								</div>
+							</div>
+							<div class="portfolio-content">
+								<div class="image-box">
+									<img class="portfolio-full-width" src="./photos/ShoeDryer_Build.png">
+								</div>
+								<div class="text-box">
+									<b>What</b>
+								</div>
+								<div class="text-box">
+									<p>I developed a climbing shoe dryer using a 12 VDC fan, 3D printing, and a lathe to machine Type 1 black anodized aluminum tubes. This included single point threading, precise hole drilling, and boring operations. The dryer is designed to efficiently dry climbing shoes after use, addressing a common issue of moisture buildup, odor, and bacterial growth within the shoes. The climbing shoe dryer provides a convenient and effective solution to enhance the hygiene and longevity of climbing footwear. </p>
+								</div>
+								<div class="image-box">
+									<img class="center-picture" src="./photos/ShoeDryer_Shoe.png" style="width: 80%; height: auto;">
+								</div>
+								<div class="text-box">
+									<b>How</b>
+								</div>
+								<div class="text-box">
+									<p>I modeled the fan dryer in CAD and used ansys fluent to run air flow simulations. The simulations did not inform much design change, but were just done for the learning experience. The design uses 3D printed female threads to secure the aluminum tubes to the base, and a 2 part base contruction to house the fan. </p>
+								</div>
+								<div class="text-box">
+									<img class="right-picture" src="./photos/Shoe_Dryer_Aluminum.png" style="height: auto;">
+									<p>The Aluminum tubes were type 1 anodized black, and then the holes and threads were cut on the lathe. </p>
+								</div>
+								<div class="text-box">
+									<b>Results</b>
+								</div>
+								<div class="text-box">
+									<p>The climbing shoe dryer proved to be highly effective in addressing common shoe hygiene issues, it effectively removes moisture and sweat from climbign shoes, reducing the risk of bacterial growth and foul odors. </p>
+								</div>
+								<div class="text-box">
+									<p>By preventing moisture related damage, the dryer helps ectend the lifespan of climbing shoesm ultimately saving climbers money.</p>
+								</div>
+								<div class="text-box">
+									<p>The threaded rods can be adjusted to longer or shorter lengths to accomodate all sizes of climbing shoes.</p>
+								</div>
+								<div class="image-box">
+									<img class="center-picture" src="./photos/ShoeDryer_Fan.png style="width: 80%; height: auto;">
+								</div>
+							</div>
+						</div>
+					</a>
+				</figure>
 				<!-- CARD -3-->
-				<figure style="cursor: pointer;" class="card mech">
+				<figure style="cursor: pointer;" class="card mech all">
 					<a class="portfolio-link">
 						<img src="./photos/Hangboard_CAD1.PNG" width=100% height=auto>
 						<figcaption>
@@ -88,7 +146,7 @@
 									<p> I used a wood planar to square my wood before using a dial indicator to line up the clamps. After the CNC process, I used the mill with a flycutter to bring the back face down to specifications.</p>
 								</div>
 								<div class="image-box">
-									<img class="center-picture" src="./photos/Hangboard_Machining.png" style="width: 100%; height: auto;">
+									<img class="center-picture" src="./photos/Hangboard_FEA.png" style="width: 100%; height: auto;">
 								</div>
 								<div class="text-box">
 									<b>Results</b>
@@ -155,20 +213,65 @@
 									<p>I reached out to a company that make their own automated ball valves and requested a sample unit that had variable position control and could open/close quick enough to be used for testing. This ball valve ended up being more precise than the servo motor solution I had created, since it can be controlled by the Arduino with a 0-10V DAC (which you can buy with sub milivolt precision).</p>
 								</div>
 								<div class="text-box">
-									<img class="right-picture" src="./photos/AVT_Built2.JPG style=" style = "height: auto;">
+									<img class="right-picture" src="./photos/AVT_Built2.JPG" style = "height: auto;">
 									<p>The final automated vaccum testbench is enclosed in a sealed plastic case from McMaster Carr, with a USB female port on the side to communicate with the user. The process of running a test takes 2 minutes, as opposed to 30 minutes manually. The readings are exremely precise, with sub 1% deviation between tests. </p>
-								</div>
-								<div class="image-box">
-									<img class="center-picture" src="./photos/RAW_Data.PNG" style="width: 60%; height: auto;">
-								</div>
-								<div class="text-box">
-									<p>Example raw readings from the testbench.</p>
 								</div>
 							</div>
 						</div>
 					</a>
 				</figure>
-				
+				<figure style="cursor: pointer;" class="card mech hardware software webdev all" onclick="window.location='https://clayhaight.com/Kurt/kurt_index.html';">
+					<a href="./DER.html" target="_blank">
+						<img src="./photos/DER_Front.png" width=100% height=auto>
+						<figcaption>
+							<h3>Kurt</h3>
+						</figcaption>
+					</a>
+				</figure>
+				<!-- 
+					<figure style="cursor: pointer;" class="card mech hardware software all">
+					<a class="portfolio-link">
+						<img src="photo" width=100% height=auto>
+						<figcaption>
+							<h3>Caption</h3>
+						</figcaption>
+						<div class="portfolio-modal">
+							<button type="button" class="modal-close">
+								<img class="close-svg" src="./photos/close button.svg" alt="Close">
+							</button>
+							<div class="portfolio-header">
+								<div class="portfolio-title-box">
+									<h2 class="portfolio-title">Name</h2>
+									<p class="portfolio-subtitle">Sub</p>
+								</div>
+							</div>
+							<div class="portfolio-content">
+								<div class="image-box">
+									<img class="portfolio-full-width" src="./photos/">
+								</div>
+								<div class="text-box">
+									<b>What</b>
+								</div>
+								<div class="text-box">
+									<p>what </p>
+								</div>
+								<div class="text-box">
+									<b>How</b>
+								</div>
+								<div class="text-box">
+									<p>how</p>
+								</div>
+								<div class="text-box">
+									<b>Results</b>
+								</div>
+								<div class="text-box">
+									<p>results</p>
+								</div>
+							</div>
+						</div>
+					</a>
+				</figure>
+				-->
 	
 				<!-- 
 				<figure style="cursor: pointer;" class="card mech hardware software all">
