@@ -46,7 +46,7 @@
 			<div class="cards_container">
 				<figure style="cursor: pointer;" class="card mech all">
 					<a class="portfolio-link">
-						<img src="./photos/MFS_Build.JPG" width=100% height=auto>
+						<img src="./photos/MFS_Build.png" width=100% height=auto>
 						<figcaption>
 							<h3>Variable Mass & Flow SKU</h3>
 						</figcaption>
@@ -62,7 +62,7 @@
 							</div>
 							<div class="portfolio-content">
 								<div class="image-box">
-									<img class="portfolio-full-width" src="./photos/MFS_Build.JPG">
+									<img class="portfolio-full-width" src="./photos/MFS_Build.png">
 								</div>
 								<div class="text-box">
 									<b>What</b>
@@ -130,7 +130,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/WC_Finish.jpg" width=100% height=auto>
+						<img src="./photos/WC_Finish.png" width=100% height=auto>
 						<figcaption>
 							<h3>OMERS Word Clock</h3>
 						</figcaption>
@@ -146,7 +146,7 @@
 							</div>
 							<div class="portfolio-content">
 								<div class="image-box">
-									<img class="portfolio-full-width" src="./photos/WC_Finish.jpg">
+									<img class="portfolio-full-width" src="./photos/WC_Finish.png">
 								</div>
 								<div class="text-box">
 									<b>What</b>
@@ -401,7 +401,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/4BC_3.jpg" width=100% height=auto>
+						<img src="./photos/4BC_1.jpg" width=100% height=auto>
 						<figcaption>
 							<h3>4 Bit Computer</h3>
 						</figcaption>
@@ -417,7 +417,7 @@
 							</div>
 							<div class="portfolio-content">
 								<div class="image-box">
-									<img class="portfolio-full-width" src="./photos/4BC_3.jpg">
+									<img class="portfolio-full-width" src="./photos/4BC_1.jpg">
 								</div>
 								<div class="text-box">
 									<b>What</b>
@@ -443,7 +443,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/SMD_Equalizer1.jpg" width=100% height=auto>
+						<img src="./photos/SMD_Equalizer1jpg.jpg" width=100% height=auto>
 						<figcaption>
 							<h3>SMD Desktop Equalizer</h3>
 						</figcaption>
@@ -459,7 +459,7 @@
 							</div>
 							<div class="portfolio-content">
 								<div class="image-box">
-									<img class="portfolio-full-width" src="./photos/SMD_Equalizer1.jpg">
+									<img class="portfolio-full-width" src="./photos/SMD_Equalizer1jpg.jpg">
 								</div>
 								<div class="text-box">
 									<b>What</b>
@@ -636,7 +636,7 @@
 									<b>Preliminary Design</b>
 								</div>
 								<div class="text-box">
-									<p>I want to talk about perception and sensing before the rest of the robot, since we made a decision that fundamentally altered the entire robot design. A big problem with the launching design was not knowing where you were going to land, meaning that the search space for the pole is probabilistically larger than the other two methods (where you roughly know where your robot is in the field, and can more easily go to some location to start your pole search). To counter this, we looked at long distance range sensors that could see the full field. I’m a big fan of the VL TOF series from STM, and they had a new offering available that claimed to do up to 4m ranging with a 8x8 depth grid (VL53L5CX). What we didn’t see early on, and what came back to bite us, was that it can only do 4m of ranging without a depth grid and in very specific lighting (realistically it was closer to 1m). A big downside was the sensor's firmware was so large it needed to be uploaded on boot over I2C from memory big enough to fit it, ruling out most Arduino Atmel based microcontrollers altogether.</p>
+									<p>I want to talk about perception and sensing before the rest of the robot, since we made a decision that fundamentally altered the entire robot design. A big problem with the launching design was not knowing where you were going to land, meaning that the search space for the pole is probabilistically larger than the other two methods (where you roughly know where your robot is in the field, and can more easily go to some location to start your pole search). To counter this, we looked at long distance range sensors that could see the full field. I’m a big fan of the VL TOF series from STM, and they had a new offering available that claimed to do up to 1m ranging with a 8x8 depth grid (VL53L5CX). What we didn’t see early on, and what came back to bite us, was that it can only do 4m of ranging without a depth grid and in very specific lighting (realistically it was closer to 1m). A big downside was the sensor's firmware was so large it needed to be uploaded on boot over I2C from memory big enough to fit it, ruling out most Arduino Atmel based microcontrollers altogether.</p>
 								</div>
 								<div class="text-box">
 									<p>But by far the biggest challenge with the launching design was how to make the robot survive on impact. To do this, we need to optimize the following equation to reduce force inflicted on the robot upon landing.</p>
