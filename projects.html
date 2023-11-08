@@ -13,6 +13,46 @@
 		<link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 
+
+		<script>
+			// Set the release dates for Project 1 and Project 2 in ISO 8601 format
+			const project1ReleaseDate = '2024-02-01T00:00:00Z';
+			const project2ReleaseDate = '2024-04-01T00:00:00Z';
+		
+			function updateCountdown() {
+				// Calculate the time remaining for Project 1
+				const now = new Date().getTime();
+				const project1Time = new Date(project1ReleaseDate).getTime();
+				const timeRemaining1 = project1Time - now;
+		
+				// Calculate the time remaining for Project 2
+				const project2Time = new Date(project2ReleaseDate).getTime();
+				const timeRemaining2 = project2Time - now;
+		
+				// Display the countdowns
+				document.getElementById('countdown1').textContent = formatCountdown(timeRemaining1);
+				document.getElementById('countdown2').textContent = formatCountdown(timeRemaining2);
+			}
+		
+			function formatCountdown(timeRemaining) {
+				if (timeRemaining <= 0) {
+					return "Project released!";
+				}
+		
+				const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+		
+				return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+			}
+		
+			// Update the countdowns every second
+			setInterval(updateCountdown, 1000);
+		
+			// Initial update
+			updateCountdown();
+		</script>
 	</head>
 	<body>
 		<header class="top_header">
@@ -45,6 +85,91 @@
 				</div> 
 			</header>
 			<div class="cards_container">
+
+				<!--
+				<figure style="cursor: pointer;" class="card mech hardware software all">
+					<a class="portfolio-link">
+						<img src="./photos/Project Photo" width=100% height=auto>
+						<figcaption>
+							<h3>Project Name</h3>
+						</figcaption>
+						<div class="portfolio-modal">
+							<button type="button" class="modal-close">
+								<img class="close-svg" src="./photos/close button.svg" alt="Close">
+							</button>
+							<div class="portfolio-header">
+								<div class="portfolio-title-box">
+									<h2 class="portfolio-title">Project Titlye</h2>
+									<p class="portfolio-subtitle"> </p>
+								</div>
+							</div>
+							<div class="portfolio-content">
+							</div>
+						</div>
+					</a>
+				</figure>
+			-->
+			<figure style="cursor: pointer;" class="card mech hardware software all">
+				<a class="portfolio-link">
+					<img src="./photos/Verkada_Cameras.webp" width=100% height=auto>
+					<figcaption>
+						<h3>Verkada - Coop #5</h3>
+					</figcaption>
+					<div class="portfolio-modal">
+						<button type="button" class="modal-close">
+							<img class="close-svg" src="./photos/close button.svg" alt="Close">
+						</button>
+						<div class="portfolio-header">
+							<div class="portfolio-title-box">
+								<h2 class="portfolio-title">Verkada</h2>
+								<p class="portfolio-subtitle">More than I could include on my Resume.</p>
+							</div>
+						</div>
+						<div class="portfolio-content">
+							<div class="text-box">
+								<p>Project 1 Release Date: <span id="countdown1"></span></p>
+							</div>
+							<div class="text-box">
+								<p>Project 2 Release Date: <span id="countdown2"></span></p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</figure>
+
+			<figure style="cursor: pointer;" class="card mech hardware software all">
+				<a class="portfolio-link">
+					<img src="./photos/OGRP.png" width=100% height=auto>
+					<figcaption>
+						<h3>Kindred AI - Coop #4</h3>
+					</figcaption>
+					<div class="portfolio-modal">
+						<button type="button" class="modal-close">
+							<img class="close-svg" src="./photos/close button.svg" alt="Close">
+						</button>
+						<div class="portfolio-header">
+							<div class="portfolio-title-box">
+								<h2 class="portfolio-title">Kindred AI</h2>
+								<p class="portfolio-subtitle"> More than I could include in my resume.</p>
+							</div>
+						</div>
+						<div class="portfolio-content">
+							<div class="text-box">
+								<p>The most notable addition I made at Kindred AI was the design of multiple gripper components designed for mass manufacturing and assembly, including aesthetic covers to protect IP, components under high pressure along the vacuum path, and MJF components involved in gripper Z compliance and trunking management. Additionally, I took control of the mission to develop custom or improve upon FDA suction cups. Current FDA compliant vacuum cups just aren’t properly suited for the wide range of grocery items, they are much better suited for either poly bags or cardboard boxes. In my time at Kindred, I developed custom urethane casted FDA compliant cups of varying durometers, and developed custom inserts that improved the performance of already available silicon cups.</p>
+							</div>
+							<div class="text-box">
+								<p>I also developed a fully automated pressure and flow testbench, that alleviated an enormous burden on the hardware team of testing vacuum systems. The testbench I developed is much more repeatable and accurate than previous testing.</p>
+							</div>
+							<div class="text-box">
+								<p>Lastly, I developed engineering drawings using GD&T and CTQ techniques for parts made in a variety of manufacturing methods and materials and leveraged ARAS PLM software to create and release BOMS.</p>
+							</div>
+							<div class="image-box">
+								<img class="center-picture" src="./photos/OGRP_Render.PNG "style = "width: 80%; height: auto;">
+							</div>	
+						</div>
+					</div>
+				</a>
+			</figure>
 				<figure style="cursor: pointer;" class="card mech all">
 					<a class="portfolio-link">
 						<img src="./photos/MFS_Build.png" width=100% height=auto>
