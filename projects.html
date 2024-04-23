@@ -111,7 +111,342 @@
 			-->
 			<figure style="cursor: pointer;" class="card mech hardware software all">
 				<a class="portfolio-link">
-					<img src="./photos/Verkada_Cameras.webp" width=100% height=auto>
+					<img src="./photos/Search & Rescue.png" width=100% height=90%>
+					<figcaption>
+						<h3>Search and Rescue?</h3>
+					</figcaption>
+					<div class="portfolio-modal">
+						<button type="button" class="modal-close">
+							<img class="close-svg" src="./photos/close button.svg" alt="Close">
+						</button>
+						<div class="portfolio-header">
+							<div class="portfolio-title-box">
+								<h2 class="portfolio-title">Kicker Bot</h2>
+								<p class="portfolio-subtitle">Loopholes galore.</p>
+							</div>
+						</div>
+						<div class="portfolio-content">
+							<div class="image-box">
+								<img class="portfolio-full-width" src="./photos/S&R2.png">
+							</div>
+							<div class="text-box">
+								<p> </p>
+							</div>
+							<div class="text-box">
+								<p>For my second term of third year (Waterloo Engineers know it as 3B), I was happy to finally have a course with a focus on building a mechatronics device, as opposed to a focus on exam based assessments. The course was MTE380, and it's purpose is to function as a 3rd year design project, a warmup before capstone. People will split off into teams of 4-5 to compete in a robotics challenge. Unlike previous iterations of the course, your base mark is no longer dependent on your competition score. But, there is still a competition aspect for bonus marks. Your competition score is known as the "performance index" of the robot, calculated as the following:</p>
+							</div>
+							<div class="image-box">
+								<img class="center-picture" src="./photos/performance index.png "style = "width: 30%; height: auto;">
+							</div>	
+							<div class="text-box">
+								<b>Search and Rescue</b>
+							</div>
+							<div class="text-box">
+								<p>The course is composed of a 6x6 grid of 30cm x 30cm squares, with a line of red tape from a start square (T intersection) to the end of the course (target). A Lego figure must be placed in the center of the target, and can be dropped off at the start of the course or in either of the boxes marked with green tape. The time starts upon the robots program start, and ends when the Lego figure is deposited in a safe zone. It is worth noting that flight and computer vision are both not allowed as per the course outline, and making a scissor mechanism to grab the Lego from the start of the course is also not allowed. The robot must be less than 20 x 20 x 20cm, and must start and end in the same configuration (no 2 stage mechanisms, etc).</p>
+							</div>
+							<div class="image-box">
+								<img class="center-picture" src="./photos/course.png "style = "width: 50%; height: auto;">
+							</div>	
+							<div class="text-box">
+								<p>After doing some due dilligence into previous competitions, it's clear to succeed that the priority of optimization is: <br>
+									1. Reduce time to complete<br>
+									2. Reduce mass<br>
+									The tradeoff between mass and time can be quantified, using square law:
+								</p>
+							</div>
+							<div class="image-box">
+								<img class="center-picture" src="./photos/PI_math.png "style = "width: 60%; height: auto;">
+							</div>	
+							<div class="text-box">
+								<b>Design Concepts</b>
+							</div>
+							<div class="text-box">
+								<p>At its core, MTE380 is a project planning course as opposed to a project course, as evidenced by only 20% of the marks being allocated for performance on game day. To acheive "perfect" marks you must: <br>
+									1. Have a well built robot (/5)<br>
+									2. Follow the line (/5)<br>
+									3. Successfully rescue the Lego (/5)<br>
+									4. Return back to the start of the course (/5) <br>
+									A run is only deemed successful if all 4 of these actions are completed. 
+								</p>
+							</div>
+							<div class="text-box">
+								<p>The obvious intent of the course is to build a line following robot with a four bar linkage gripper or some other intake solution, with some added mechanical and controls complexity if you want to drop it off at one of the green squares. This tried and true method was used by 20/22 teams. Dealing with a challenge that lacked some complexity compared to some of the previous course offerings (scaling a wall, underwater drones, fire fighter robots, etc), we decided to form a group of individuals keen on bending some rules, and finding some loopholes.</p>
+							</div>
+							<div class="text-box">
+								<p>As to not interfere with eachothers brainstorming process, we split up to brainstorm some cool and unique solutions. Some ideas that were thrown around but didn't seem feasible/weren't allowed by the TA's include: shooting a lasso to the Lego with a winch at the start to reel the Lego back, extendind a scissor mechanism to pick up the Lego, melt the Lego down and shoot it to the start square, drive over the obstacles to pick up the Lego etc. The feasible ideas that we settled on were to make a gripper (last resort), design a geometric intake that holds the Lego and avoids the weight/time of a gripper, or to kick the Lego using compression springs/elastic bands/torsion springs, etc.</p>
+							</div>
+							<div class="text-box">
+								<p>You've already seen the renders I spent so much time on, so you know which decision we went with. It was a pretty easy justification: it was the most feasible non-gripper solution allowed by the TA's, we estimated the kicker assembly to only need to weigh an extra ~40g, and save up to 10s off of our anticipated 30s run. There is likely more optimal ways to do the gripper design, but based off initial sentiment we went with kicking.</p>
+							</div>
+							<div class="text-box">
+								<b>Preliminary Design</b>
+							</div>
+							<div class="text-box">
+								<img class="right-picture" src="./photos/LaunchPath.png" style="height: auto;">
+								<p>The largest issue that arises when kicking the Lego is that the entire kicking sequence has a lot of assosciated tolerances, that we expected to amount to an imprecise launch angle and distance. We decided that instead of waste time coming up with a way to mathematically calculate the stack up and create some mockups to test. I ordered a set of compression springs from amazon and started getting into some CAD (finally). <br> <br>
+									Some quick calculations were used to select which compression springs to try for kicker, using an intended launch angle of 20 degrees and distance of 85 cm. This launch angle was chosen because it allows for significant tolerance in the launch angle while still allowing the Lego to reach the start. To determine what springs to use, I estimated the weight of the Lego figure and kicker assembly based off preliminary CAD, then used assorted kinematics and force analysis to estimate the energy required to launch the Lego, before using the spring constant equation based off the torsional deflection of the spring to determine a list of springs that could work. I'll append my writeup of the design calculations to the end of this post for those interested (it is rather dry).</p>
+							</div>
+							<div class="text-box">
+								<p>I decided to try and make the kicker part using Fusion 360's generative design tool, making use of all my student credits while I still have them. The first prototype of the kicker is relatively simple, it involved an angled impact slider, 2 plungers, 2 compression springs, and 2 nylon flange bushings. With this setup I tested a variety of kicking angles, springs, and compression distances. Since I didn't want to pay the exhorbitant McMaster Carr shipping prices, I picked up some aluminum and nylon from the machine shop and made the parts myself. </p>
+							</div>
+							<div class="image">
+								<div class="multiple-pictures">
+									<img class="right-picture" src="./photos/Machined Parts.JPG" style="height: auto;">
+									<img class="left-picture" src="./photos/Prototype S&R.JPG" style="height: auto;">
+								</div>
+							</div>
+							<div class="text-box">
+								<p>After sitting in my basement and filming ~100 kicking attempts, some with deliberate misplacement of the kicker or Lego, I concluded that as long as we could make the kicking routine mildly deterministic, kicking the Lego is completely feasible. Based on this knowledge, we went on to make our first full prototype build (with slightly too strong springs):</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/Prototype S&R2.gif">
+							</div>
+							<div class="text-box">
+								<b>Robot Design</b>
+							</div>
+							<div class="text-box">
+								<p>During the design of our Robot, we tried to mass optimize as much as possible. This resulted in the use of a lot of 3D printed parts, minimized to usually around 0.8mm thick in areas that didn't require much strength, supporting ribs, and parts that have multiple purposes, all of which posed an interesting problem. Beyond mechanical component optimization, the biggest optimizations came from battery selection and chassis design.  <br> <br>
+									Rio (EE, FW, general aficionado) calculated the average power consumption of the Robot during our run, and we used this to spec the smallest possible batteries, about 3g each. We wired 2 of these batteries to make a 2S LiPo cell, which  over volts the motors (8.4 V / 6 V), but delivers performance gains at the cost of potentially burning some motors. We are close to reaching the maximum discharge rate of these batteries (2A), but can get 2-3 runs out of them before the voltage drop noticable affects performance. The motors we ended up using are 30:1 Polulu micrometal gear motors, calculated using required drive speed and torque for accelerating in the straights. The desired finish time to get from the start line to the target was chosen to be 7s. On competition day, the line following time was about 7.5 seconds. Which is very close to the calculated value. We also tested 1:10 early in development.
+								</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture" src="./photos/S&R Batteries.png">
+							</div>
+							<div class="text-box">
+								<p>To make the robot as light as possible, we elected to use 1mm thick PCBA as the chassis for our robot. This accomplishes a couple things:<br>
+										1. FR4 composite is quite strong relative to its weight when compared to materials like acrylic. <br>
+										2. We can route all the traces we need, avoiding ugly wires that can be tricky to debug.<br>
+										3. We had already extensively tested all electrical sub systems, and were confident in their use for the final robot.
+								</p>
+							</div>
+							<div class="text-box">
+								<p> Ideally, we could have soldered the components for the nucleo directly onto the board, which would be a huge cost saving. However, one thing to keep in mind is where the center of gravity is of the assembly relative to the wheels. With all the kicker and electrical components mostly pushed towards the front of the robot, and extremely light batteries, without the nucleo the center of gravity would shift forward. This is not ideal, as to deliver maximum torque and have the highest traction, the center of gravity should be in line with the center axis of the wheels. Doing a quick CG study keeping the nucleo on the back should drastically enhance traction performance. After careful routing and review, the PCBs were ordered at the end of February, just before midterm exams.</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/CG S&R.png">
+							</div>
+							<div class="text-box">
+								<p>The PCBA arrived and worked! We needed to add a small jumper to ensure the motor driver was in the correct operation mode. With a working drive platform, the rest of the components needed to be fabricated. This includes a lot of 3D printed pieces, and some machined. As mentioned before, the 3D printed parts are weight optimized without sacrificing function. Components made out of metal needed to be for proper longevity of the robot. These parts are the 2 spring plungers, and the interlocking release mechanism components. The kicker is released using a 2g servo motor, the motor rotates the pink part out of the way of the teal part, requiring near 0 force to release the kicker. The plungers were made of aluminum, while the kicker parts were made with tool steel.</p>
+							</div>
+							<div class="image-box">
+								<div class="multiple-pictures">
+									<img class="center-picture" src="./photos/Kicker_Release.png">
+									<img class="center-picture" src="./photos/Kicker_Release2.png">
+									<img class="center-picture" src="./photos/Kicker Machined Components.JPG">
+								</div>
+							</div>
+							<div class="text-box">
+								<p>The battery holder is held to the nucleo using super small snap on shaft collars, which worked way better than I thought they would. Using needle nose pliers, it was a sub 2 minute operation to swap battery holders which was much better than previous iterations, which use fastner or press fit solutions. The rest of the mechanical components: front shroud, trigger servo block, guide bushings, and motor holders are all secured using M2 screws and nuts. We could go down to M1.6, but ordering those from McMaster would eaten too much into our budget. Since we need to swap batteries every 2-3 runs, I designed a holder geometry reminiscent of a cable organizer. Batteries can be swapped in less than 30 seconds. It was starting to feel like a pit stop between runs when we would swap batteries and clean the tires for better traction.</p>
+							</div>
+							<div class="image-box">
+								<div class="multiple-pictures">
+									<img class="center-picture" src="./photos/shaft collar.png">
+									<img class="center-picture" src="./photos/BatteryHolder.JPG">
+								</div>
+							</div>
+							<div class="text-box">
+								<p>On competition day, our robot weighed 178.5g, the lightest in our class by 70 grams and half of the average weight.</p>
+							</div>
+							<div class="text-box">
+								<b>Kicker Design</b>
+							</div>
+							<div class="text-box">
+								<p>I've already discussed the design of the actual kicker, but another critical challenge of kicking the Lego is ensuring proper alignment, both relative to the robot and to the target. This challenge requires open loop control, there are no sensors on our robot that indiciate the position of the Lego, meaning that we can detect target and make assumptions as to where the Lego is within the target. As a note, for the competition we can place the Lego wherever we want, as long as it is within the center white circle of the target.</p>
+							</div>
+							<div class="text-box">
+								<p>Early prototyping was done based off the assumption that it made more sense to have the intake on the kicker. Intuitively, this allows us to ensure alignment of the Lego during the entire kicking motion. In reality, it is very difficult to quicly iterate a geometry that can intake the Lego accounting for minor positional errors during alignment, deterministic kicking, and doesn't lose the Lego during aiming (which has some jitters due to the PID controller).</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/intake1.jpg">
+							</div>
+							<div class="text-box">
+								<p>After a lot of wasted effort trying to get the kicker mounted intake to work, we went in the opposite direction. Widening the kicker to almost the width of the robot, and using compliant flexures on the shroud as an intake guide. While this geometry was excellent for intake and aiming, the kicking had too much deviation to be feasible. It also added a couple extra grams.</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/intake2.png">
+							</div>
+							<div class="text-box">
+								<p>More testing showed us that the size of the kicker paddle and the intake could be shrunk to reduce the weight of the kicking mechanism and the overall robot. It was also noticed that the intake's flexural arms made taking the Lego figure less reliable due to random impulses. Later testing showed that aiming could be done in one smooth motion. This means that the left side guide arm was not used during any part of the run and could be removed to save some more weight. The final intake design uses a thin (0.8mm thick) plastic arm, perfectly positioned and sized to interact with the Lego figure. This arm is a part of the already existing shroud part. The negative angle of the intake ensures the Lego figure is correctly positioned for launching after the aiming sequence is completed.</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/intake3.png">
+							</div>
+							<div class="text-box">
+								<b>Catcher Design</b>
+							</div>
+							<div class="text-box">
+								<p>Another critical mechanical component to our robot was the catcher. After discussion with the teaching team, we were allowed to leave a net or barrier at the start square to catch the Lego (since the course walls are considered "an infinite boundary") if we met the following criteria <br>
+								   1. The catcher starts mechanically somewhat attached at the beginning and end of our run. Somewhat meaning that if the Robot were to drive it would drag the catcher with it. <br>
+								   2. The catcher must also remain within the 20cm boundary cube. <br>
+								   3. The Lego must be touching the wood tile for the run to be successful. <br>
+								We are not allow to glue or tape the catcher down to the start square, but the robot is able to. This led us to our first catcher iteration, made of 3D printed corner attachments, balsa wood BBQ skewers, and table cloth. Along the bottom of the catcher is a crossbar, which is latched and unlatched using a second servo motor (dubbed as "catch-attach") placed a the back of the robot. At the start of the run when the hook is down, the robot drags the catcher, qualifying as "somewhat attached". </p>
+							</div>
+							<div class="image-box">
+								<div class="multiple-pictures">
+									<img class="center-picture" src="./photos/catcherV1_1.png">
+									<img class="center-picture" src="./photos/catcherV1_2.png">
+									<img class="center-picture" src="./photos/catcherV1_3.png">
+								</div>
+							</div>
+							<div class="text-box">
+								<p>Through empirical testing, it was determined that with the crossbar below the robot, the Lego would get pinned between the robot and the bar, preventing the robot from latching at the end of the run. Moving the bar above the robot allows it to be offset by at least one Lego figure length to ensure that even in a worst-case scenario, the robot can still latch effectively. Moving the crossbar above the robot is slightly risky on the off chance that the Lego hits the crossbar and is bounced out of the start square; however, this became a non-issue for a point to be discussed in the game day section. The more imporant issue at hand is the movement of the catcher after stopping the Lego.</p>
+							</div>
+							<div class="image-box">
+								<div class="multiple-pictures">
+									<img class="center-picture" src="./photos/catcherV2.png">
+									<img class="center-picture" src="./photos/IMG_2356.gif">
+								</div>
+							</div>
+							<div class="text-box">
+								<p>Upon closer inspection, each tile on the course contains four holes for alignment pegs, conveniently arranged in an 18 cm square. This was leveraged by adding pegs to the catcher to prevent it from sliding upon impact with the Lego figure, making the entire end sequence more deterministic. With further testing and spring refinement, it was decided that the top of the catcher could be safely lowered from 180mm to 95mm. Although the Lego could go over the net, it was unlikely, and the weight saving was worth it. </p>
+							</div>
+							<div class="text-box">
+								<p>The wooden dowels were convenient for quick prototyping and not wasting a bunch of 3D printed plastic, however they were still pretty heavy. At this point, the catcher still weighed over 25g, a large enough percentage of our robot that it was considered an issue. The catcher was switched to a fully 3D printed frame, made with a swept L-beam profile, 1.2mm thick at all points. This catcher was nowhere near as sturdy as it's wooden counterpart, which ended up working in our favor. Because we can use the holes in the course for our catcher, we don't have to worry about it going anywhere. We can then optimize it for what it was intended to due, catch the Lego. The L beam frame is strong enough to support it;s own weigh, but deflects upon impact with the Lego, the deflection dampens the impact of the Lego, preventing it from bouncing straight off the catcher and out of the start square. This is also why the net is purposefully quite loose on the catcher. At the start of the runs the net is flared outwards, so it can slow down the Lego for a further distance. The net cannot be too loose, or else it would catch and hold the Lego, as opposed to gently releasing it to the start square. </p>
+							</div>
+							<div class="text-box">
+								<p>The final catcher combined all of these learnings, and had one extra trick up its sleeve. With 2 weeks before the competition, we decided it was worth the engineering time to start prototyping angle catchers of various decline (10, 15, 20, 30 degrees). The angle deflects the Lego downwards towards the start square, preventing it from getting caught in the tarp and having the Lego settle against the start square earlier, two things that were helpful for havign a successful run and optimizing run time. One final change was to remove the bottom beam of the catcher; the pegs already added the rigidity along that section, and it aleviated any risk of having the Lego get caught in the catcher. The beam was replaced with some string so that the net still had structure. The final catcher weighed 13g.</p>
+							</div>
+							<div class="image-box">
+								<div class="multiple-pictures">
+									<img class="center-picture" src="./photos/catcherf_1 (1).JPG">
+									<img class="center-picture" src="./photos/catcherf_2.JPG">
+									<img class="center-picture" src="./photos/catcherf_3.JPG">
+								</div>
+							</div>
+							<div class="text-box">
+								<b>Electrical</b>
+							</div>
+							<div class="text-box">
+								<p>Rio and Ethan worked on the electrial side of things, I'll link there in depth writeups later, and skim over the electronics here for context.</p>
+							</div>
+							<div class="text-box">
+								<p>The electrical system consists of the following components: 5V Buck converter, Battery connector and voltage sensing, I2C compass, which ended up being unused, LED + photodiode sensor array, H-bridge DC motor driver, Brushed DC motors, Infrared optical encoders, Servos, Bluetooth UART module for debugging and tuning, Nucleo F401RE.</p>
+							</div>
+							<div class="text-box">
+								<p>All motors and servos run on the unregulated battery voltage from 7.4-8.4 V. The LED array and motor encoder run on 5V from the buck regulator. The rest of the circuit runs on a 3.3V rail created by the Nucleo’s on-board regulator. Rather than relying on the internal 5V regulator on the Nucleo, we chose to add an external buck regulator to provide a higher current to the LED array.</p>
+							</div>
+							<div class="text-box">
+								<p>The power source is provided by two packs of Li-Po batteries in series. With 100mAh each, they provide enough charges to finish the course just a few times. In exchange, we get massive weight savings. The pack weight is ~5g in total. For reference, the 350mAh battery we used during the prototype was ~25g in mass.</p>
+							</div>
+							<div class="text-box">
+								<p>Two 30:1 Pololu motors are used to drive the wheels. These motors are rated at 6V, which is overvolted to 8V for this project, considering the short-life nature of the project and part availability. These motors provide decent speed and fast response, allowing the robot to follow the line speedily. A Pololu optical encoder is added to each motor, providing motor position feedback and connection to the PCB. </p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture" src="./photos/motorencoder.jpg">
+							</div>
+							<div class="text-box">
+								<p>The sensor array consists of 6 LED – photodiode pairs, with built-in IR blocking filters. With a green LED, the pair can effectively sense the difference between the red tape and the wood tiles.</p>
+							</div>
+							<div class="image-box">
+								<div class="multiple-pictures">
+									<img class="center-picture" src="./photos/photodiode_array.png">
+									<img class="center-picture forty-per" src="./photos/photodiode_info.png">
+								</div>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/Robot_PCBA.png">
+							</div>
+							<div class="text-box">
+								<b>Software</b>
+							</div>
+							<!--
+							<div class="text-box">
+								<p>Using a bluetooth module plugged into the available 4 pin header on our robot, Rio set up firmware that allows the robot to receive commands through SSH. The firmware is comprised of the following modules:
+									•	command – UART command handler handles commands sent by serial console and Bluetooth <br>
+									•	config – configuration manager, saves and loads various configurations used in the code based, like PID parameters, sensor calibrations, etc.<br>
+									•	flash – a low-level flash driver, reads and writes to Nucleo’s flash to preserve configurations across resets.<br>
+									•	motor – motor driver, contains the motor speed controllers. Responsible for recording encoder count, motor speed, and H-bridge PWM output.<br>
+									•	pid – Reusable PID code, used by other modules to implement PID controler. <br>
+									•	servo – low level servo driver, outputs PWM on servo pins based on commanded input.<br>
+									•	state – finite state machine responsible for robot’s high-level behaviour, such as the start, aim, kick, reattach sequences during a run.<br>
+									•	telemetry – streams sensor data, states, and other live telemetry data over Bluetooth.<br>
+									•	usart – low level driver to enable stdlib IO functions over UART.<br>
+									•	button – handles user input from Nucleo’s push button<br>
+									•	compass – configures and reads I2C compass. Includes elliptical curve calibration to compensate for hard and soft iron interference.<br>
+									•	control – contains controllers for different operations, like moving a fixed step, turning a fixed angle, aiming based on compass heading, and line following. The PID controller responsible for line following is contained in here. <br>
+									•	main – code entry point, initializes all the modules and runs them in a fixed 1kHz loop. <br>
+									•	music – plays music on the motors, it burns them though, so we minimize the use of this module. <br>
+									•	sensor – reads sensor data from the photodiode array, includes a basic linear calibration for each photodiode and combines the result into a singular error value that can be fed into a PID controller. <br>
+									•	speed – speed controller, responsible for recording and calculating the speed to run at while the robot is following the line. <br>
+								</p>
+							</div>
+						-->
+							<div class="text-box">
+								<p>The overall architecture is a 1kHz superloop. Each module gets to run once every 1 ms at equal priorities based on timer interrupts. STM32 HAL is used to control low-level hardware. The sensor readings are combined using a (signed) weighted average, such that the result reads 0 when the line is in the center of the array. Each sensor is calibrated at two points—on top of the wood floor and on top of the red tape—and the readings are normalized. The final value is latched using the minimum value read across sensors. This way, the robot will remember the line’s last direction when it gets lost.</p>
+							</div>
+							<div class="text-box">
+								<p>The robot uses a cascaded control. Each motor has a speed controller to maintain speed across battery voltage variation. Depending on the control mode, the reference input for these controllers is generated by another controller. For line following mode, a PID controller is used. For the arc, turn, and move modes, speed is controlled based on each motor's encoder count. Chaining controllers like this allows the robot to have consistent and easy-to-configure behaviours.</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/State_machine.png">
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/cascaded_PID.png">
+							</div>
+							<div class="text-box">
+								<p>The PID Tuner (“the tuner”), serves as a graphical interface to visualize the step response of the left vs right motor, along with inputs to adjust all settings. The tuner sets the robot speed and PID values, then runs the motor for a set time and records the response. This helped in configuring motor PID for near-instantaneous response. </p>
+							</div>
+							<div class="image-box">
+								<div class="multiple-pictures">
+									<img class="center-picture forty-per" src="./photos/PID_tuner.png">
+									<img class="center-picture" src="./photos/Linefollower.gif">
+								</div>
+							</div>
+							<div class="text-box">
+								<p>The Graphical Control Panel (“the interface”) provides additional graphical data for the entire robot, rather than solely the motors. The main usage of the interface is to provide graphs to show live streamed data from the robot and to provide an easy method of controlling the robot. The data from the graphs covers encoder counts (left vs right), motor speed (actual vs target for both left and right), battery voltage, state, and photodiode readings. The control set on the bottom includes a command input, a quick access panel, and a timer for the design check specification.</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/robot_GCI.png">
+							</div>
+							<div class="text-box">
+								<b>Competition</b>
+							</div>
+							<div class="text-box">
+								<p>Our last testing before game day was at around noon the day before. After successfully completing five consecutive runs, it was decided not to do any further tuning, keeping all components fresh for game day. We didn’t properly anticipate the amount of wear the track would go through in the next 24 hours. The track likely saw use for those 24 hours consecutively, with some groups allegedly staying overnight to test. On game day we were confident, due to some fine print in the course outline. The course outline states that when calculating performance index, an attempt is defined as a run lasting longer than 10 seconds. This fine print turned into an instant cheat code for our robot. During our testing, the Lego typically landed in the start square at around the 8.4s mark. However, not all runs were perfect; sometimes the Lego would bounce out of the start square, sometimes the aiming sequence was slightly off and it missed the catcher, etc.</p>
+							</div>
+							<div class="text-box">
+								<p>We showed up on game day with a final robot weighing 178.5 grams. Our first run was completed successfully, completing the full S&R course in 8.34 seconds. The next four runs were unsuccessful; the robot was unable to aim and shoot the Lego figure properly. This was likely due to a combination of all the dust and dirt on the track and some tiles that were slightly mismatched, creating an inconsistent line. </p>
+							</div>
+							<div class="text-box">
+								<p>After some wheel and track cleaning, the robot completed 3 successful attempts (with the previous failed runs occurring before 10 seconds had elapsed, nullifying them). This rendered a “perfect” reliability score. Our second run resulted in our best time of 8.04 seconds, making our final performance index:</p>
+							</div>
+							<div class="image-box" style="margin-bottom: 0;">
+								<img class="center-picture forty-per" src="./photos/final_pi.png">
+							</div>
+							<div class="text-box">
+								<p>Which was the highest, giving us 1st place. We were both the lightest and fastest group, and the only group with a perfect reliability score. Our performance index was ~3x better than the next highest in our class, and ~20x higher than 3rd place.</p>
+							</div>
+							<div class="image-box">
+								<div class="multiple-pictures">
+									<img class="center-picture sixty-per" src="./photos/PI gameday.png">
+									<img class="center-picture" src="./photos/Competition Day Robot.JPG">
+								</div>
+							</div>
+							<div class="text-box">
+								<p>To many, this project was just something that they needed to pass. To us, this project was much more than a barrier to getting a piece of paper; it was an opportunity to experience the engineering design process, encapsulating the challenges, setbacks, breakthroughs, and, ultimately, the triumphs. </p>
+							</div>
+							<div class="text-box">
+								<p>Our game day attempts:</p>
+							</div>
+							<div class="text-box">
+								<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/8u3IwjN4-II?si=tdUW8Fv7ERGZ9RIN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+							</div>	
+							<div class="text-box">
+								<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/LBMdm6LrCjA?si=1l66cRBuUxnhlpI9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+							</div>	
+							<div class="text-box">
+								<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/lfnb23w3IuM?si=pL5ZTZ1Ykh4sMq6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+							</div>	
+							<div class="text-box">
+								<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/uxvNV-Q-7y4?si=ZkC6xLf-tt5u6zvs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+							</div>		
+						</div>
+					</div>
+				</a>
+			</figure>
+			<figure style="cursor: pointer;" class="card mech hardware software all">
+				<a class="portfolio-link">
+					<img src="./photos/Verkada_Cameras.webp" width=100% height=90%>
 					<figcaption>
 						<h3>Verkada - Coop #5</h3>
 					</figcaption>
@@ -173,7 +508,7 @@
 			</figure>
 				<figure style="cursor: pointer;" class="card mech all">
 					<a class="portfolio-link">
-						<img src="./photos/MFS_Build.png" width=100% height=auto>
+						<img src="./photos/MFS_Build.png" width=100% height=90%>
 						<figcaption>
 							<h3>Variable Mass & Flow SKU</h3>
 						</figcaption>
@@ -210,7 +545,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/LED_Equalizer.png" width=100% height=auto>
+						<img src="./photos/LED_Equalizer.png" width=100% height=90%>
 						<figcaption>
 							<h3>LED Equalizer</h3>
 						</figcaption>
@@ -237,7 +572,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/WC_Finish.png" width=100% height=auto>
+						<img src="./photos/WC_Finish.png" width=100% height=90%>
 						<figcaption>
 							<h3>OMERS Word Clock</h3>
 						</figcaption>
@@ -303,7 +638,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech all">
 					<a class="portfolio-link">
-						<img src="./photos/ShoeDryer_Build.png" width=100% height=auto>
+						<img src="./photos/ShoeDryer_Build.png" width=100% height=90%>
 						<figcaption>
 							<h3>Shoe Dryer</h3>
 						</figcaption>
@@ -362,7 +697,7 @@
 				<!-- CARD -3-->
 				<figure style="cursor: pointer;" class="card mech all">
 					<a class="portfolio-link">
-						<img src="./photos/Hangboard_CAD1.PNG" width=100% height=auto>
+						<img src="./photos/Hangboard_CAD1.PNG" width=100% height=90%>
 						<figcaption>
 							<h3>Hangboard</h3>
 						</figcaption>
@@ -424,7 +759,7 @@
 				<!-- CARD -2-->
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/AVT_Built2.png" width=100% height=auto>
+						<img src="./photos/AVT_Built2.png" width=100% height=90%>
 						<figcaption>
 							<h3>Automated Vacuum Testbench</h3>
 						</figcaption>
@@ -482,7 +817,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all" onclick="window.location='https://joshdolgin.github.io/DER.html';">
 					<a href="./DER.html" target="_blank">
-						<img src="./photos/DER_Front.png" width=100% height=auto>
+						<img src="./photos/DER_Front.png" width=100% height=90%>
 						<figcaption>
 							<h3>Engineering Report</h3>
 						</figcaption>
@@ -490,7 +825,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/Rover_Build.jpg" width=100% height=auto>
+						<img src="./photos/Rover_Cad2.png" width=100% height=90%>
 						<figcaption>
 							<h3>Bi-Wheeled RC Rover</h3>
 						</figcaption>
@@ -559,7 +894,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/4BC_1.jpg" width=100% height=auto>
+						<img src="./photos/4BC_1.jpg" width=100% height=90%>
 						<figcaption>
 							<h3>4 Bit Computer</h3>
 						</figcaption>
@@ -589,7 +924,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/SMD_Equalizer1jpg.jpg" width=100% height=auto>
+						<img src="./photos/SMD_Equalizer1jpg.jpg" width=100% height=90%>
 						<figcaption>
 							<h3>SMD Desktop Equalizer</h3>
 						</figcaption>
@@ -616,7 +951,7 @@
 				</figure>
 				<figure style="cursor: pointer;" class="card mech hardware software all">
 					<a class="portfolio-link">
-						<img src="./photos/STC_Build2.png" width=100% height=auto>
+						<img src="./photos/STC_Build2.png" width=100% height=90%>
 						<figcaption>
 							<h3>Smart Trash Can</h3>
 						</figcaption>
