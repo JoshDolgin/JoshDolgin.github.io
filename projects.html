@@ -148,11 +148,11 @@
 							</div>
 							<div class="text-box">
 								<p> The rules to the competition: <br>
-									- A Lego figure must be placed in the center of the target, and can be dropped off at the start of the course or in either of the boxes marked with green tape. <br>
+									- A Lego figure must be placed in the center of the target, and can be dropped off at the start of the course or in either of the boxes marked with green tape <br>
 									- The time starts upon the robots program start, and ends when the Lego figure is deposited in a safe zone<br>
-									-  It is worth noting that flight and computer vision are both not allowed as per the course outline,<br>
-									-  making a scissor mechanism to grab the Lego from the start of the course is also not allowed (we thought we could be clever and not follow the line at all, but we must demonstrate line following prior to interacting with the Lego). <br>
-									- The robot must be less than 20 x 20 x 20cm, <br>
+									- Flight and computer vision are both not allowed as per the course outline<br>
+									- Making a scissor mechanism to grab the Lego from the start of the course is also not allowed (we thought we could be clever and not follow the line at all, but we must demonstrate line following prior to interacting with the Lego). <br>
+									- The robot must be less than 20 x 20 x 20cm <br>
 									- The robot must start and end in the same configuration (no 2 stage mechanisms, etc)<br>
 									</p>
 							</div>
@@ -169,6 +169,9 @@
 							<div class="image-box">
 								<img class="center-picture" src="./photos/PI_math.png "style = "width: 60%; height: auto;">
 							</div>	
+							<div class="text-box">
+								<p>By doubling the mass and taking 2/3 the amount of time, you can increase the performance index by 12.5%.</p>
+							</div>
 							<div class="text-box">
 								<b>Design Concepts</b>
 							</div>
@@ -196,7 +199,7 @@
 							<div class="text-box">
 								<img class="right-picture" src="./photos/LaunchPath.png" style="height: auto;">
 								<p>The largest issue that arises when kicking the Lego is that the entire kicking sequence has a lot of assosciated tolerances, that we expected to amount to an imprecise launch angle and distance. We decided that instead of waste time coming up with a way to mathematically calculate the stack up and create some mockups to test. I ordered a set of compression springs from amazon and started getting into some CAD (finally). <br> <br>
-									Some quick calculations were used to select which compression springs to try for kicker, using an intended launch angle of 20 degrees and distance of 85 cm. This launch angle was chosen because it allows for significant tolerance in the launch angle while still allowing the Lego to reach the start. To determine what springs to use, I estimated the weight of the Lego figure and kicker assembly based off preliminary CAD, then used assorted kinematics and force analysis to estimate the energy required to launch the Lego, before using the spring constant equation based off the torsional deflection of the spring to determine a list of springs that could work. I'll append my writeup of the design calculations to the end of this post for those interested (it is rather dry).</p>
+									Some quick calculations were used to select which compression springs to try for kicker, using an intended launch angle of 20 degrees and distance of 85 cm. This launch angle was chosen because it allows for significant tolerance in the launch angle while still allowing the Lego to reach the start. To determine what springs to use, I estimated the weight of the Lego figure and kicker assembly based off preliminary CAD, then used assorted kinematics and force analysis to estimate the energy required to launch the Lego, before using the spring constant equation based off the torsional deflection of the spring to determine a list of springs that could work.</p>
 							</div>
 							<div class="text-box">
 								<p>I decided to try and make the kicker part using Fusion 360's generative design tool, making use of all my student credits while I still have them. The first prototype of the kicker is relatively simple, it involved an angled impact slider, 2 plungers, 2 compression springs, and 2 nylon flange bushings. With this setup I tested a variety of kicking angles, springs, and compression distances. Since I didn't want to pay the exhorbitant McMaster Carr shipping prices, I picked up some aluminum and nylon from the machine shop and made the parts myself. </p>
@@ -248,7 +251,7 @@
 								</div>
 							</div>
 							<div class="text-box">
-								<p>The battery holder is held to the nucleo using super small snap on shaft collars, which worked way better than I thought they would. Using needle nose pliers, it was a sub 2 minute operation to swap battery holders which was much better than previous iterations, which use fastner or press fit solutions. The rest of the mechanical components: front shroud, trigger servo block, guide bushings, and motor holders are all secured using M2 screws and nuts. We could go down to M1.6, but ordering those from McMaster would eaten too much into our budget. Since we need to swap batteries every 2-3 runs, I designed a holder geometry reminiscent of a cable organizer. Batteries can be swapped in less than 30 seconds. It was starting to feel like a pit stop between runs when we would swap batteries and clean the tires for better traction.</p>
+								<p>The battery holder is held to the nucleo using super small snap on shaft collars, which worked way better than I thought they would. Using needle nose pliers, it was a sub 2 minute operation to swap battery holders which was much better than previous iterations, which use fastener or press fit solutions. The rest of the mechanical components: front shroud, trigger servo block, guide bushings, and motor holders are all secured using M2 screws and nuts. We could go down to M1.6, but ordering those from McMaster would eat too much into our budget. Since we need to swap batteries every 2-3 runs, I designed a holder geometry reminiscent of a cable organizer. Batteries can be swapped in less than 30 seconds. It was starting to feel like a pit stop between runs when we would swap batteries and clean the tires for better traction.</p>
 							</div>
 							<div class="image-box">
 								<div class="multiple-pictures">
@@ -291,7 +294,7 @@
 								   1. The catcher starts mechanically somewhat attached at the beginning and end of our run. Somewhat meaning that if the Robot were to drive it would drag the catcher with it. <br>
 								   2. The catcher must also remain within the 20cm boundary cube. <br>
 								   3. The Lego must be touching the wood tile for the run to be successful. <br>
-								We are not allow to glue or tape the catcher down to the start square, but the robot is able to. This led us to our first catcher iteration, made of 3D printed corner attachments, balsa wood BBQ skewers, and table cloth. Along the bottom of the catcher is a crossbar, which is latched and unlatched using a second servo motor (dubbed as "catch-attach") placed a the back of the robot. At the start of the run when the hook is down, the robot drags the catcher, qualifying as "somewhat attached". </p>
+								We are not allow to glue or tape the catcher down to the start square, but the robot is able to. This led us to our first catcher iteration, made of 3D printed corner attachments, balsa wood BBQ skewers, and table cloth. Along the bottom of the catcher is a crossbar, which is latched and unlatched using a second servo motor (dubbed as "catch-attach") placed at the back of the robot. At the start of the run when the hook is down, the robot drags the catcher, qualifying as "somewhat attached". </p>
 							</div>
 							<div class="image-box">
 								<div class="multiple-pictures">
@@ -313,10 +316,10 @@
 								<p>Upon closer inspection, each tile on the course contains four holes for alignment pegs, conveniently arranged in an 18 cm square. This was leveraged by adding pegs to the catcher to prevent it from sliding upon impact with the Lego figure, making the entire end sequence more deterministic. With further testing and spring refinement, it was decided that the top of the catcher could be safely lowered from 180mm to 95mm. Although the Lego could go over the net, it was unlikely, and the weight saving was worth it. </p>
 							</div>
 							<div class="text-box">
-								<p>The wooden dowels were convenient for quick prototyping and not wasting a bunch of 3D printed plastic, however they were still pretty heavy. At this point, the catcher still weighed over 25g, a large enough percentage of our robot that it was considered an issue. The catcher was switched to a fully 3D printed frame, made with a swept L-beam profile, 1.2mm thick at all points. This catcher was nowhere near as sturdy as it's wooden counterpart, which ended up working in our favor. Because we can use the holes in the course for our catcher, we don't have to worry about it going anywhere. We can then optimize it for what it was intended to due, catch the Lego. The L beam frame is strong enough to support it;s own weigh, but deflects upon impact with the Lego, the deflection dampens the impact of the Lego, preventing it from bouncing straight off the catcher and out of the start square. This is also why the net is purposefully quite loose on the catcher. At the start of the runs the net is flared outwards, so it can slow down the Lego for a further distance. The net cannot be too loose, or else it would catch and hold the Lego, as opposed to gently releasing it to the start square. </p>
+								<p>The wooden dowels were convenient for quick prototyping and not wasting a bunch of 3D printed plastic, however they were still pretty heavy. At this point, the catcher still weighed over 25g, a large enough percentage of our robot that it was considered an issue. The catcher was switched to a fully 3D printed frame, made with a swept L-beam profile, 1.2mm thick at all points. This catcher was nowhere near as sturdy as it's wooden counterpart, which ended up working in our favor. Because we can use the holes in the course for our catcher, we don't have to worry about it going anywhere. We can then optimize it for what it was intended to due, catch the Lego. The L beam frame is strong enough to support it's own weigh, but deflects upon impact with the Lego, the deflection dampens the impact of the Lego, preventing it from bouncing straight off the catcher and out of the start square. This is also why the net is purposefully quite loose on the catcher. At the start of the runs the net is flared outwards, so it can slow down the Lego for a further distance. The net cannot be too loose, or else it would catch and hold the Lego, as opposed to gently releasing it to the start square. </p>
 							</div>
 							<div class="text-box">
-								<p>The final catcher combined all of these learnings, and had one extra trick up its sleeve. With 2 weeks before the competition, we decided it was worth the engineering time to start prototyping angle catchers of various decline (10, 15, 20, 30 degrees). The angle deflects the Lego downwards towards the start square, preventing it from getting caught in the tarp and having the Lego settle against the start square earlier, two things that were helpful for havign a successful run and optimizing run time. One final change was to remove the bottom beam of the catcher; the pegs already added the rigidity along that section, and it aleviated any risk of having the Lego get caught in the catcher. The beam was replaced with some string so that the net still had structure. The final catcher weighed 13g.</p>
+								<p>The final catcher combined all of these learnings, and had one extra trick up its sleeve. With 2 weeks before the competition, we decided it was worth the engineering time to start prototyping angle catchers of various decline (10, 15, 20, 30 degrees). The angle deflects the Lego downwards towards the start square, preventing it from getting caught in the tarp and having the Lego settle against the start square earlier, two things that were helpful for having a successful run and optimizing run time. One final change was to remove the bottom beam of the catcher; the pegs already added the rigidity along that section, and it aleviated any risk of having the Lego get caught in the catcher. The beam was replaced with some string so that the net still had structure. The final catcher weighed 13g.</p>
 							</div>
 							<div class="image-box">
 								<div class="multiple-pictures">
@@ -456,6 +459,7 @@
 					</div>
 				</a>
 			</figure>
+			<!--
 			<figure style="cursor: pointer;" class="card mech hardware software all">
 				<a class="portfolio-link">
 					<img src="./photos/Verkada_Cameras.webp" width=100% height=80%>
@@ -479,13 +483,11 @@
 							<div class="image-box">
 								<img class="center-picture" src="./photos/ACC_POE_90W.png "style = "width: 80%; height: auto;">
 							</div>		
-							<div class="text-box">
-								<p>Coming Soon: <span id="countdown2"></span></p>
-							</div>
 						</div>
 					</div>
 				</a>
 			</figure>
+			-->
 			<!--
 			<figure style="cursor: pointer;" class="card mech hardware software all">
 				<a class="portfolio-link">
